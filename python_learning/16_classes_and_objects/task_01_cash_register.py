@@ -1,10 +1,6 @@
 """Task 1: Cash register class."""
 
 
-class NotEnoughMoneyError(ValueError):
-    """Raised when cash register does not have enough money."""
-
-
 class CashRegister:
     """Store and manage current cash amount."""
 
@@ -28,17 +24,21 @@ class CashRegister:
         if amount <= 0:
             raise ValueError("Сумма списания должна быть положительной.")
         if amount > self.balance:
-            raise NotEnoughMoneyError("Недостаточно денег в кассе.")
+            raise ValueError("Недостаточно денег в кассе.")
         self.balance -= amount
 
 
 def main() -> None:
     cash_register = CashRegister(2500)
+    print(f"Начальный баланс: {cash_register.balance}")
+
     cash_register.top_up(1500)
-    print(f"Баланс: {cash_register.balance}")
-    print(f"Целых тысяч: {cash_register.count_1000()}")
+    print(f"top_up(1500) -> баланс: {cash_register.balance}")
+
+    print(f"count_1000() -> целых тысяч: {cash_register.count_1000()}")
+
     cash_register.take_away(1200)
-    print(f"Баланс после списания: {cash_register.balance}")
+    print(f"take_away(1200) -> баланс: {cash_register.balance}")
 
 
 if __name__ == "__main__":

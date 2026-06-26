@@ -31,7 +31,7 @@ def test_turtle_evolve_and_degrade() -> None:
 def test_turtle_degrade_rejects_zero_step() -> None:
     turtle = task_02.Turtle(step=1)
 
-    with pytest.raises(task_02.TurtleStepError):
+    with pytest.raises(ValueError):
         turtle.degrade()
 
 

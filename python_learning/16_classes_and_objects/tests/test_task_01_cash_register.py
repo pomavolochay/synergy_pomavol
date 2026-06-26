@@ -31,7 +31,7 @@ def test_cash_register_take_away() -> None:
 def test_cash_register_take_away_rejects_too_large_amount() -> None:
     cash_register = task_01.CashRegister(500)
 
-    with pytest.raises(task_01.NotEnoughMoneyError):
+    with pytest.raises(ValueError):
         cash_register.take_away(600)
 
 
