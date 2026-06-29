@@ -10,10 +10,6 @@ def test_seen_before_flags() -> None:
     assert task_03.seen_before_flags([1, 2, 1, 3, 2]) == ["NO", "NO", "YES", "NO", "YES"]
 
 
-def test_parse_int_list_empty() -> None:
-    assert task_03.parse_int_list("") == []
-
-
 def test_main_prints_flags(monkeypatch, capsys) -> None:
     monkeypatch.setattr("builtins.input", lambda _: "1 2 1 1")
 
